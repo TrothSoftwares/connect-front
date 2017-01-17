@@ -37,7 +37,7 @@ module.exports = function(environment) {
 
   ENV['simple-auth-devise'] = {
     tokenAttributeName: 'token',
-    identificationAttributeName: 'email',
+    identificationAttributeName: 'phone',
     serverTokenEndpoint:  ENV.APP.host  + '/users/sign_in',
     authorizer: 'devise',
     crossOriginWhitelist: ['*'],
@@ -50,7 +50,7 @@ ENV['ember-simple-auth'] = {
   };
 
 
-  
+
 
   if (environment === 'development') {
     ENV.APP.host =  'http://localhost:3000';

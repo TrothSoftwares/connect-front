@@ -3,6 +3,8 @@ export default Ember.Controller.extend(Ember.Evented,{
 
 session: Ember.inject.service('session'),
 
+
+
   isLoginButtonDisabled: Ember.computed('email', function() {
     return Ember.isEmpty(this.get('email'));
   }),
@@ -10,14 +12,33 @@ session: Ember.inject.service('session'),
   actions: {
     authenticate(){
       var controller = this;
-        this.get('session').authenticate('authenticator:devise', this.get('email'), this.get('password')).catch(function(){
+        this.get('session').authenticate('authenticator:devise', this.get('phone'), this.get('password')).catch(function(){
 
-          controller.notifications.addNotification({
-            message: 'Username or password is incorrect!' ,
-            type: 'error',
-            autoClear: true
-          });
+
+          controller.get('notifications').error('Phone Number or password is incorrect!');
+
+
         });
+    },
+
+    signup(){
+      var controller = this;
+      var newUser = controller.store.createRecord('user',{
+        name:this.get('newname'),
+        phone:this.get('newphone'),
+        password:this.get('newpassword'),
+        password_confirmation:this.get('newpassword')
+      });
+
+      newUser.save().then(function(){
+        console.log('saved');
+      }).catch(function(){
+        console.log('error');
+      });
+
+
+
     }
+
   }
 });

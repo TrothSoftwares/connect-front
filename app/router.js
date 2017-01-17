@@ -10,6 +10,8 @@ Router.map(function() {
   this.route('login');
   this.route('dashboard' ,{path: '/'});
 
+  this.route('forgotpassword');
+  this.route('authenticateotp');
 });
 
 export default Router;

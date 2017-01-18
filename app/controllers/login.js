@@ -30,10 +30,17 @@ session: Ember.inject.service('session'),
         password_confirmation:this.get('newpassword')
       });
 
+
       newUser.save().then(function(){
-        console.log('saved');
-      }).catch(function(){
-        console.log('error');
+        controller.get('session').authenticate('authenticator:devise', controller.get('newphone'), controller.get('newpassword')).catch(function(){
+
+          controller.get('notifications').error('Phone Number or password is incorrect!',{autoClear:true});
+
+
+        });
+      },function(error){
+        console.log('getting error');
+        console.log(error);
       });
 
 

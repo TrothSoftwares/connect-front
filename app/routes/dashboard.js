@@ -10,6 +10,19 @@ session: Ember.inject.service('session'),
 
       this.get('session').invalidate();
       this.transitionTo('login');
+    },
+
+
+    createPost(){
+      var controller = this.get('controller');
+
+      var newpost = controller.store.createRecord('post');
+
+      newpost.save().then(function(success){
+        console.log(success);
+      },function(error){
+        console.log(error);
+      });
     }
   }
 });

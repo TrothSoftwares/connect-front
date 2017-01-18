@@ -74,7 +74,7 @@ ENV['ember-simple-auth'] = {
   }
 
   if (environment === 'production') {
-    ENV.APP.host =  'http://connect-back.herokuapp.com';
+    ENV.APP.host =  'http://troth-test.herokuapp.com';
 
   }
 

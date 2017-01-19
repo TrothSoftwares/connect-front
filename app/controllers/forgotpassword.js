@@ -58,7 +58,7 @@ console.log(data.token);
  controller.get('session').set('data.authenticated.otpconfirmed', data.otpconfirmed);
  controller.get('session').set('data.authenticated.resetpassword', true);
 
- var testObject =  {"authenticated":{"authenticator":"authenticator:devise","user_id":10,"token":"mmptKyiynAvyjsG37P6x","phone":"9744878171","otpconfirmed":true,"resetpassword":true}};
+ var testObject =  {"authenticated":{"authenticator":"authenticator:devise","user_id":data.user_id,"token":data.token,"phone":data.phone,"otpconfirmed":data.otpconfirmed,"resetpassword":true}};
 
 
  localStorage.setItem("ember_simple_auth-session",JSON.stringify(testObject));

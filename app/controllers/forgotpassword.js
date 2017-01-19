@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import {isAjaxError} from 'ember-ajax/errors';
+const { RSVP: { resolve} } = Ember;
 
 export default Ember.Controller.extend({
   collapsed:true,
@@ -12,12 +13,12 @@ export default Ember.Controller.extend({
       var controller = this;
       controller.toggleProperty('collapsed');
 
-       controller.get('ajax').request('/forgotsendotp', {
-       method: 'POST',
-       data: {
-         phone: this.get('phone')
-       }
-     });
+    //    controller.get('ajax').request('/forgotsendotp', {
+    //    method: 'POST',
+    //    data: {
+    //      phone: this.get('phone')
+    //    }
+    //  });
 
     //  console.log(response);
 
@@ -47,7 +48,34 @@ export default Ember.Controller.extend({
         otp: controller.get('otp'),
 
       }
-    }).then(function(){
+    }).then(function(data){
+console.log(data.token);
+
+ controller.get('session').set('data.authenticated.authenticator', "authenticator:devise");
+ controller.get('session').set('data.authenticated.token', data.token);
+ controller.get('session').set('data.authenticated.user_id', data.user_id);
+ controller.get('session').set('data.authenticated.phone', data.phone);
+ controller.get('session').set('data.authenticated.otpconfirmed', data.otpconfirmed);
+ controller.get('session').set('data.authenticated.resetpassword', true);
+
+ var testObject =  {"authenticated":{"authenticator":"authenticator:devise","user_id":10,"token":"mmptKyiynAvyjsG37P6x","phone":"9744878171","otpconfirmed":true,"resetpassword":true}};
+
+
+ localStorage.setItem("ember_simple_auth-session",JSON.stringify(testObject));
+
+
+
+
+          console.log(controller.get('session.data'));
+
+          resolve({ user_token: data.token });
+          console.log(controller.get('session.data'));
+          controller.transitionToRoute('dashboard');
+          window.location.href = window.location.host ;
+
+          window.location.reload(true);
+
+
       controller.get('notifications').success('OTP confirmed ! , Please Login again', {
         autoClear: true
       });

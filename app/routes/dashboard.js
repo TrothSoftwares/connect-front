@@ -12,12 +12,16 @@ session: Ember.inject.service('session'),
 setupController: function(controller) {
 
 
+console.log(this.get('session.data.authenticated.resetpassword'));
   if(Ember.isEqual(false, this.get('session.data.authenticated.otpconfirmed'))){
     controller.set('otpConfirmed',false );
    //this.transitionTo('authenticateotp');
   }
   if(Ember.isEqual(true, this.get('session.data.authenticated.otpconfirmed'))){
     controller.set('otpConfirmed',true );
+  }
+  if(Ember.isEqual(true, this.get('session.data.authenticated.resetpassword'))){
+   this.transitionTo('dashboard.resetpassword');
   }
 
 },

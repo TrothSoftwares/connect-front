@@ -14,7 +14,7 @@ setupController: function(controller) {
 
   if(Ember.isEqual(false, this.get('session.data.authenticated.otpconfirmed'))){
     controller.set('otpConfirmed',false );
-   this.transitionTo('authenticateotp');
+   //this.transitionTo('authenticateotp');
   }
   if(Ember.isEqual(true, this.get('session.data.authenticated.otpconfirmed'))){
     controller.set('otpConfirmed',true );

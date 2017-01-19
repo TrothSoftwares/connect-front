@@ -15,8 +15,10 @@ session: Ember.inject.service('session'),
       var controller = this;
         this.get('session').authenticate('authenticator:devise', this.get('phone'), this.get('password')).catch(function(){
 
-
-          controller.get('notifications').error('Phone Number or password is incorrect!');
+          
+          controller.get('notifications').error('Phone Number or password is incorrect!', {
+            autoClear: true
+          });
 
 
         });

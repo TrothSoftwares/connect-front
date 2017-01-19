@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import {isAjaxError, isNotFoundError, isForbiddenError} from 'ember-ajax/errors';
+import {isAjaxError} from 'ember-ajax/errors';
 
 export default Ember.Controller.extend({
   collapsed:true,

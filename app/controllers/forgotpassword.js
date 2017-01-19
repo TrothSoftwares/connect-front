@@ -89,14 +89,6 @@ console.log(data.token);
  localStorage.setItem("ember_simple_auth-session",JSON.stringify(testObject));
 
 
-
-
-          console.log(controller.get('session.data'));
-
-          resolve({ user_token: data.token });
-          console.log(controller.get('session.data'));
-          controller.transitionToRoute('dashboard');
-
           window.location.href = window.location.host ;
           window.location.reload(true);
 

@@ -6,6 +6,7 @@ import ENV from '../config/environment';
 export default AjaxService.extend({
   session: Ember.inject.service(),
   host: ENV.APP.host,
+
   // headers: Ember.computed('session.token', {
   //   get() {
   //     let headers = {};

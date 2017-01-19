@@ -1,6 +1,5 @@
 import Ember from 'ember';
-import {isAjaxError} from 'ember-ajax/errors';
-const { RSVP: { resolve} } = Ember;
+ const { RSVP: { resolve} } = Ember;
 
 export default Ember.Controller.extend({
   collapsed:true,
@@ -13,25 +12,51 @@ export default Ember.Controller.extend({
       var controller = this;
       controller.toggleProperty('collapsed');
 
-    //    controller.get('ajax').request('/forgotsendotp', {
-    //    method: 'POST',
-    //    data: {
-    //      phone: this.get('phone')
-    //    }
-    //  });
+     controller.get('ajax').raw('/forgotsendotp', {
+       method: 'POST',
+       data: {
+         phone: this.get('phone')
+       }
+     }).then(function(response){
+        controller.get('notifications').success( response.payload.message, {
+          autoClear: true
+        });
+      },function(error) {
+             controller.get('notifications').error( error.payload.message, {
+              autoClear: true
+           });
 
-    //  console.log(response);
+         });
+
+
+
+
+
+
+
+
+
+
 
     },
 
     forgotresendotp(){
       var controller = this;
-      controller.get('ajax').request('/forgotsendotp', {
-      method: 'POST',
-      data: {
-        phone: this.get('phone')
-      }
-    });
+
+        controller.get('ajax').raw('/forgotsendotp', {
+       method: 'POST',
+       data: {
+         phone: this.get('phone')
+       }
+     }).then(function(response){
+        controller.get('notifications').success( response.payload.message, {
+          autoClear: true
+        });
+      },function(error) {
+             controller.get('notifications').error( error.payload.message, {
+              autoClear: true
+           });
+         });
 
     },
 
@@ -41,7 +66,7 @@ export default Ember.Controller.extend({
       var controller = this;
 
 
-       controller.get('ajax').request('/forgotauthenticateotp', {
+       controller.get('ajax').raw('/forgotauthenticateotp', {
       method: 'POST',
       data: {
         phone: controller.get('phone'),
@@ -71,10 +96,9 @@ console.log(data.token);
           resolve({ user_token: data.token });
           console.log(controller.get('session.data'));
           controller.transitionToRoute('dashboard');
+
           window.location.href = window.location.host ;
-
           window.location.reload(true);
-
 
       controller.get('notifications').success('OTP confirmed ! , Please Login again', {
         autoClear: true
@@ -82,29 +106,12 @@ console.log(data.token);
 
 
 
-
-      // controller.get('session').invalidate();
-      // controller.transitionTo('login');
-
-      // var dashboardControllerobject = controller.get('dashboardController');
-      //
-      // dashboardControllerobject.set('otpConfirmed',true);
-      // controller.set('session.data.authenticated.otpconfirmed', false);
-      //
-      // controller.transitionToRoute('dashboard');
-
-    }).catch(function(error) {
-        if(isAjaxError(error)) {
-          console.log(error.errors[0].title);
-          controller.get('notifications').error('OTP is incorrect!', {
+    },function(error) {
+           controller.get('notifications').error( error.payload.message, {
             autoClear: true
-          });
-          return;
-        }
-
-
-        throw error;
-      });
+         });
+       }
+     );
 
 
     }

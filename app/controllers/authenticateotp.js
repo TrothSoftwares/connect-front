@@ -16,12 +16,12 @@ export default Ember.Controller.extend({
       var controller = this;
       controller.toggleProperty('collapsed');
 
-    //    var response = controller.get('ajax').request('/sendotp', {
-    //    method: 'POST',
-    //    data: {
-    //      user_id: this.get('session.data.authenticated.user_id')
-    //    }
-    //  });
+       var response = controller.get('ajax').request('/sendotp', {
+       method: 'POST',
+       data: {
+         user_id: this.get('session.data.authenticated.user_id')
+       }
+     });
 
     //  console.log(response);
 

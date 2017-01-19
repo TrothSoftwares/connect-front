@@ -23,7 +23,7 @@ export default Ember.Controller.extend({
        }
      });
 
-    //  console.log(response);
+     console.log(response);
 
     },
 
@@ -58,12 +58,6 @@ export default Ember.Controller.extend({
       controller.get('session').invalidate();
       controller.transitionTo('login');
 
-      // var dashboardControllerobject = controller.get('dashboardController');
-      //
-      // dashboardControllerobject.set('otpConfirmed',true);
-      // controller.set('session.data.authenticated.otpconfirmed', false);
-      //
-      // controller.transitionToRoute('dashboard');
 
     }).catch(function(error) {
         if(isAjaxError(error)) {

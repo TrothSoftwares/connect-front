@@ -1,0 +1,18 @@
+
+
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+body {
+
+    font-family: 'Lato', sans-serif !important;
+    background: transparent;
+}
+
+.navbar-default .navbar-brand
+{
+  color: #444;
+}
+.home-head
+{
+  padding-top: 100px;
+}

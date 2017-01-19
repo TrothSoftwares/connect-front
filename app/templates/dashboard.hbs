@@ -36,10 +36,7 @@
                         <a href="pending.html">Pending</a>
                     </li>
 
-                    <li >
 
-
-                        <ul class="">
 
                           {{#bs-dropdown tagName="li" as |dd|}}
        {{#dd.toggle}}<span class="glyphicon glyphicon-user"></span>&nbsp; User <b class="caret"></b>{{/dd.toggle}}
@@ -48,12 +45,12 @@
            <li>Contact Support</li>
            <li class="divider"></li>
            <li {{action 'logout'}}> Logout </li>
+
        {{/dd.menu}}
    {{/bs-dropdown}}
 
 
-                        </ul>
-                    </li>
+
                     <li>
                         <a class="page-scroll" href="#contact"><span class="glyphicon glyphicon-comment"></span></a>
                     </li>

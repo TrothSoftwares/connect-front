@@ -5,6 +5,7 @@ session: Ember.inject.service('session'),
 
 
 
+
   isLoginButtonDisabled: Ember.computed('email', function() {
     return Ember.isEmpty(this.get('email'));
   }),
@@ -34,7 +35,7 @@ session: Ember.inject.service('session'),
       newUser.save().then(function(){
         controller.get('session').authenticate('authenticator:devise', controller.get('newphone'), controller.get('newpassword')).catch(function(){
 
-          controller.get('notifications').error('Phone Number or password is incorrect!',{autoClear:true});
+          controller.get('notifications').error('Phone Number or password is incorrect!');
 
 
         });

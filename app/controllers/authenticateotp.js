@@ -16,20 +16,28 @@ export default Ember.Controller.extend({
       var controller = this;
       controller.toggleProperty('collapsed');
 
-       var response = controller.get('ajax').request('/sendotp', {
+       controller.get('ajax').raw('/sendotp', {
        method: 'POST',
        data: {
          user_id: this.get('session.data.authenticated.user_id')
        }
-     });
+     }).then(function(response){
+        controller.get('notifications').success( response.payload.message, {
+          autoClear: true
+        });
+      },function(error) {
+             controller.get('notifications').error( error.payload.message, {
+              autoClear: true
+           });
 
-     console.log(response);
+         });
+
 
     },
 
 
     resendotp(){
-      this.get('ajax').request('/sendotp', {
+      this.get('ajax').raw('/sendotp', {
       method: 'POST',
       data: {
         user_id: this.get('session.data.authenticated.user_id')
@@ -42,36 +50,25 @@ export default Ember.Controller.extend({
       var controller = this;
 
 
-       controller.get('ajax').request('/authenticateotp', {
+       controller.get('ajax').raw('/authenticateotp', {
       method: 'POST',
       data: {
         user_id: controller.get('session.data.authenticated.user_id'),
         otp: controller.get('otp'),
 
       }
-    }).then(function(){
-      controller.get('notifications').success('OTP confirmed ! , Please Login again', {
-        autoClear: true
-      });
-
-
-      controller.get('session').invalidate();
-      controller.transitionTo('login');
-
-
-    }).catch(function(error) {
-        if(isAjaxError(error)) {
-          console.log(error.errors[0].title);
-          controller.get('notifications').error('OTP is incorrect!', {
-            autoClear: true
+    }).then(function(response){
+       controller.get('notifications').success( response.payload.message, {
+         autoClear: true
+       });
+       controller.get('session').invalidate();
+       controller.transitionTo('login');
+     },function(error) {
+            controller.get('notifications').error( error.payload.message, {
+             autoClear: true
           });
-          return;
-        }
 
-
-        throw error;
-      });
-
+        });
 
     }
   }

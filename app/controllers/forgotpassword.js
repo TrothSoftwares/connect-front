@@ -16,7 +16,8 @@ export default Ember.Controller.extend({
        method: 'POST',
        data: {
          phone: this.get('phone')
-       }
+       },
+
      }).then(function(response){
         controller.get('notifications').success( response.payload.message, {
           autoClear: true
@@ -47,7 +48,8 @@ export default Ember.Controller.extend({
        method: 'POST',
        data: {
          phone: this.get('phone')
-       }
+       },
+
      }).then(function(response){
         controller.get('notifications').success( response.payload.message, {
           autoClear: true
@@ -66,13 +68,14 @@ export default Ember.Controller.extend({
       var controller = this;
 
 
-       controller.get('ajax').raw('/forgotauthenticateotp', {
+       controller.get('ajax').request('/forgotauthenticateotp', {
       method: 'POST',
       data: {
         phone: controller.get('phone'),
         otp: controller.get('otp'),
 
-      }
+      },
+
     }).then(function(data){
 console.log(data.token);
 
@@ -93,12 +96,12 @@ console.log(data.token);
 
           console.log(controller.get('session.data'));
 
-          resolve({ user_token: data.token });
-          console.log(controller.get('session.data'));
-          controller.transitionToRoute('dashboard');
+           console.log(controller.get('session.data'));
+           controller.transitionToRoute('dashboard');
 
-          window.location.href = window.location.host ;
-          window.location.reload(true);
+
+          // window.location.href = window.location.host ;
+          // window.location.reload(true);
 
       controller.get('notifications').success('OTP confirmed ! , Please Login again', {
         autoClear: true

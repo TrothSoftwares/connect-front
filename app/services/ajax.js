@@ -7,14 +7,6 @@ export default AjaxService.extend({
   session: Ember.inject.service(),
   host: ENV.APP.host,
 
-  // headers: Ember.computed('session.token', {
-  //   get() {
-  //     let headers = {};
-  //     const authToken = this.get('session.token');
-  //     if (authToken) {
-  //       headers['token'] = authToken;
-  //     }
-  //     return headers;
-  //   }
-  // })
+
+
 });

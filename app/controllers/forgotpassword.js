@@ -100,8 +100,7 @@ console.log(data.token);
            controller.transitionToRoute('dashboard');
 
 
-          // window.location.href = window.location.host ;
-          // window.location.reload(true);
+
 
       controller.get('notifications').success('OTP confirmed ! , Please Login again', {
         autoClear: true

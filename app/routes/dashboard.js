@@ -11,7 +11,6 @@ session: Ember.inject.service('session'),
 
 setupController: function(controller) {
 
-console.log("qqqqqqqqqqqqqqqqqqqqqqqq");
   if(Ember.isEqual(false, this.get('session.data.authenticated.otpconfirmed'))){
     controller.set('otpConfirmed',false );
    this.transitionTo('authenticateotp');

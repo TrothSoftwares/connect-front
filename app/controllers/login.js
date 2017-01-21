@@ -6,8 +6,22 @@ session: Ember.inject.service('session'),
 
 
 
-  isLoginButtonDisabled: Ember.computed('email', function() {
-    return Ember.isEmpty(this.get('email'));
+  isLoginButtonDisabled: Ember.computed('phone','password', function() {
+    if(Ember.isEmpty(this.get('phone')) || Ember.isEmpty(this.get('password'))){
+    return true;
+    }
+    else{
+      return false;
+    }
+  }),
+
+  isSignupButtonDisabled: Ember.computed('newname', 'newphone','newpassword', function() {
+    if(Ember.isEmpty(this.get('newname')) || Ember.isEmpty(this.get('newphone')) || Ember.isEmpty(this.get('newpassword'))){
+    return true;
+    }
+    else{
+      return false;
+    }
   }),
 
   actions: {
@@ -15,7 +29,7 @@ session: Ember.inject.service('session'),
       var controller = this;
         this.get('session').authenticate('authenticator:devise', this.get('phone'), this.get('password')).catch(function(){
 
-          
+
           controller.get('notifications').error('Phone Number or password is incorrect!', {
             autoClear: true
           });

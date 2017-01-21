@@ -22,6 +22,10 @@ setupController: function(controller) {
    this.transitionTo('dashboard.resetpassword');
   }
 
+  
+
+  var user = this.store.findRecord('user',this.get('session.data.authenticated.user_id'));
+
 },
 
   actions: {

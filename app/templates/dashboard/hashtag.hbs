@@ -1,0 +1,186 @@
+<section id="intro" class="home-head">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-5">
+            <div class="well trending" style="height:490px;overflow-y:scroll;">
+              <h4><i class="glyphicon glyphicon-fire"></i>&nbsp;Most Connected Tag</h4>
+
+                      <div class="media">
+                          <a class="pull-left" href="#">
+                                    <div class="">
+
+                                    </div>
+                          </a>
+                          <div class="media-body">
+                            <span class="label label-default lb-md ">#Banglore</span>
+                            <span class="label label-default lb-md">#needs c++ developer</span>
+                            <span class="label label-default lb-md">#looking for candidates</span>
+                              <hr style="margin:8px auto">
+                              <small>5 Hours Ago </small>
+
+                              <div class="cbtns">
+                                <div class="close"></div>
+                                <button class="btn btn-xs btn-success"><b>100</b>&nbsp; Connected</button>
+
+                              </div>
+
+                          </div>
+                      </div>
+
+                              <div class="media">
+                                  <a class="pull-left" href="#">
+                                            <div class="">
+
+                                            </div>
+                                  </a>
+                                  <div class="media-body">
+                                    <span class="label label-default lb-md ">#Banglore</span>
+                                    <span class="label label-default lb-md">#needs c++ developer</span>
+                                    <span class="label label-default lb-md">#looking for candidates</span>
+                                      <hr style="margin:8px auto">
+                                      <small>5 Hours Ago </small>
+
+                                      <div class="cbtns">
+                                        <div class="close"></div>
+                                        <button class="btn btn-xs btn-success"><b>25</b>&nbsp; Connected</button>
+
+                                      </div>
+
+                                  </div>
+                              </div>
+
+                                      <div class="media">
+                                          <a class="pull-left" href="#">
+                                                    <div class="">
+
+                                                    </div>
+                                          </a>
+                                          <div class="media-body">
+                                            <span class="label label-default lb-md ">#Banglore</span>
+                                            <span class="label label-default lb-md">#needs c++ developer</span>
+                                            <span class="label label-default lb-md">#looking for candidates</span>
+                                              <hr style="margin:8px auto">
+                                              <small>5 Hours Ago </small>
+
+                                              <div class="cbtns">
+                                                <div class="close"></div>
+                                                <button class="btn btn-xs btn-success"><b>56</b>&nbsp; Connected</button>
+
+                                              </div>
+
+                                          </div>
+                                      </div>
+                                      <div class="media">
+                                          <a class="pull-left" href="#">
+                                                    <div class="">
+
+                                                    </div>
+                                          </a>
+                                          <div class="media-body">
+                                            <span class="label label-default lb-md ">#Banglore</span>
+                                            <span class="label label-default lb-md">#needs c++ developer</span>
+                                            <span class="label label-default lb-md">#looking for candidates</span>
+                                              <hr style="margin:8px auto">
+                                              <small>5 Hours Ago </small>
+
+                                              <div class="cbtns">
+                                                <div class="close"></div>
+                                                <button class="btn btn-xs btn-success"><b>25</b>&nbsp; Connected</button>
+
+                                              </div>
+
+                                          </div>
+                                      </div>
+                                      <div class="media">
+                                          <a class="pull-left" href="#">
+                                                    <div class="">
+
+                                                    </div>
+                                          </a>
+                                          <div class="media-body">
+                                            <span class="label label-default lb-md ">#Banglore</span>
+                                            <span class="label label-default lb-md">#needs c++ developer</span>
+                                            <span class="label label-default lb-md">#looking for candidates</span>
+                                              <hr style="margin:8px auto">
+                                              <small>5 Hours Ago </small>
+
+                                              <div class="cbtns">
+                                                <div class="close"></div>
+                                                <button class="btn btn-xs btn-success"><b>25</b>&nbsp; Connected</button>
+
+                                              </div>
+
+                                          </div>
+                                      </div>
+                                      <div class="media">
+                                          <a class="pull-left" href="#">
+                                                    <div class="">
+
+                                                    </div>
+                                          </a>
+                                          <div class="media-body">
+                                            <span class="label label-default lb-md ">#Banglore</span>
+                                            <span class="label label-default lb-md">#needs c++ developer</span>
+                                            <span class="label label-default lb-md">#looking for candidates</span>
+                                              <hr style="margin:8px auto">
+                                              <small>5 Hours Ago </small>
+
+                                              <div class="cbtns">
+                                                <div class="close"></div>
+                                                <button class="btn btn-xs btn-success"><b>25</b>&nbsp; Connected</button>
+
+                                              </div>
+
+                                          </div>
+                                      </div>
+
+
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div class="well">
+              <h3>Tag</h3>
+            <hr>
+            <div class="row">
+
+            <div class="col-md-6"><button type="button" class="btn btn-primary btn-fluid pull-left">#Tag Posted <span class="badge pull-right">{{posts.length}}</span></button></div>
+            <div class="col-md-6"><button type="button" class="btn btn-primary btn-fluid pull-left">Response Received <span class="badge pull-right">12</span></button></div>
+          </div>
+          <br>
+            <div class="row" style="overflow-y: scroll;height: 307px;">
+
+
+
+{{#each posts as |post|}}
+        <div class="media">
+            <a class="pull-left" href="#">
+                      <div class="">
+
+                      </div>
+            </a>
+            <div class="media-body">
+              <span class="label label-default lb-md ">{{post.title}}</span>
+
+                <hr style="margin:8px auto">
+                <small>{{moment-from-now post.createdat }}  </small>
+                <button class="btn btn-xs btn-success pull-right">Connected</button>
+
+                <div class="cbtns">
+                  <div class="close"></div>
+
+                </div>
+
+            </div>
+        </div>
+
+{{/each}}
+
+</div>
+          </div>
+          <div class="col-md-3">
+
+          </div>
+
+        </div>
+      </div>
+    </div></section>

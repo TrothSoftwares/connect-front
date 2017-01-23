@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('login');
   this.route('dashboard', {path: '/'}, function() {
     this.route('resetpassword');
+    this.route('hashtag');
   });
 
   this.route('forgotpassword');

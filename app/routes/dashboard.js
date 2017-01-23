@@ -22,7 +22,7 @@ setupController: function(controller) {
    this.transitionTo('dashboard.resetpassword');
   }
 
-  
+
 
   var user = this.store.findRecord('user',this.get('session.data.authenticated.user_id'));
 
@@ -36,16 +36,6 @@ setupController: function(controller) {
     },
 
 
-    createPost(){
-      var controller = this.get('controller');
-
-      var newpost = controller.store.createRecord('post');
-
-      newpost.save().then(function(success){
-        console.log(success);
-      },function(error){
-        console.log(error);
-      });
-    }
+    
   }
 });

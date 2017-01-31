@@ -20,11 +20,17 @@ body {
     color: #262626;
     text-decoration: none;
     background-color: #f5f5f5;
-    
+
   }
 
 .dropdown-menu
 {
   padding: 10px;
 
+}
+
+
+
+.pac-container:after{
+    content:none !important;
 }

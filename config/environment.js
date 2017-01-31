@@ -8,8 +8,8 @@ module.exports = function(environment) {
     locationType: 'auto',
     contentSecurityPolicy: {
      'default-src': "'self' *",
-     'script-src': "'self' 'unsafe-inline' *",
-     'connect-src': "'self' *",
+     'script-src': "'self' 'unsafe-inline' *.googleapis.com maps.gstatic.com *",
+     'connect-src': "'self' * ",
      'font-src': "'self'  data: http://fonts.gstatic.com * ",
      'media-src': "'self' *",
      'style-src': "'self' 'unsafe-inline' *",

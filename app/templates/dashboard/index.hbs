@@ -107,10 +107,31 @@
           <div class="col-md-8">
             <div class="well">
               <div class="row">
-                  <div class="col-xs-8 col-md-9">
-                    {{input type="text" value=poststring class="form-control input-sm" placeholder="#Location  #Needs/Provides  #Looking For"}}
+                  <div class="col-xs-8 col-md-3">
 
-                     </div>
+                    {{place-autocomplete-field
+                      value=place
+                      disable=false
+                      handlerController= this
+                      inputClass= 'place-autocomplete--input  form-control input-sm '
+                      focusOutCallback='focusOut'
+                      placeChangedCallback='placeChanged'
+                      restrictions= restriction
+                      withGeoLocate= true
+                    }}
+                    </div>
+
+                    <div class="col-xs-8 col-md-3">
+                      {{input type="text" value=needsprovides class="form-control input-sm" placeholder="Needs/Provides"}}
+                    </div>
+
+                      <div class="col-xs-8 col-md-3">
+                        {{input type="text" value=lookingfor class="form-control input-sm" placeholder="Looking For"}}
+                      </div>
+
+
+
+
                   <div class="col-xs-4 col-md-3">
 
 

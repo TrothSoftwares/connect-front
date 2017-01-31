@@ -34,6 +34,12 @@ module.exports = function(environment) {
 
 
 
+  ENV['place-autocomplete'] = {
+
+    key: 'AIzaSyBw_BKJsL6SV6bd895eb3BQWPatVQasuWw',
+    version: 3.27 // Optional - if client is set version must be above 3.24
+  };
+
 
   ENV['simple-auth-devise'] = {
     tokenAttributeName: 'token',

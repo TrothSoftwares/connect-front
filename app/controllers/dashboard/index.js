@@ -46,8 +46,10 @@ user.then(function(user){
   });
 
 
-  newpost.save().then(function(success){
-    console.log(success);
+  newpost.save().then(function(){
+    controller.set('place','');
+    controller.set('needsprovides','');
+    controller.set('lookingfor','');
   },function(error){
     console.log(error);
   });

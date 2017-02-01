@@ -27,30 +27,38 @@ restriction: {country: "in"},
 
     focusOut(){
 
+
+// console.log("dddddd");
+// console.log(this.get('placeName'));
     },
 
 
     placeChanged(place){
-  //     this.set('placeJSON', JSON.stringify(place, undefined, 2));
+      // this.set('placeJSON', JSON.stringify(place, undefined, 2));
+
+
   // if (place.adr_address) {
   //   let regexp = /(<span(?: \w+="[^"]+")*(?: \w+="[^"]+")*>([^<]*)<\/span>)/g,
   //       fullAddress = place.adr_address.replace(regexp, "$2");
-  //   this.set('cleanFullAddress', fullAddress);
+  //   this.set('cleanFullAddress', place.name);
   //   console.log("Getting full addrees");
-  //   console.log(fullAddress);
+  //   // console.log(fullAddress);
   // }
   // console.log("Getting place addr_addrees");
-  // console.log(place.adr_address);
-  // this.set('fullAddress', place.adr_address);
-  //
-  //
-  //     console.log(location);
-  //     console.log("placechanged");
+  // // console.log(place.adr_address);
+  // this.set('cleanFullAddress', place.name);
+  // this.set('placeName',place.name);
+  // this.set('pppp',place.name);
+  Ember.run.later(this, function() {
+    var input = document.getElementsByClassName('place-autocomplete--input');
+    this.set('place',place.name);
+
+      input.value = place.id;
+    }, 10);
+
+},
 
 
-
-    
-    },
     createPost(){
       var controller = this;
       var user = controller.get('store').findRecord('user', controller.get('session.data.authenticated.user_id'));

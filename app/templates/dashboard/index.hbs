@@ -107,13 +107,14 @@
           <div class="col-md-8">
             <div class="well">
               <div class="row">
-                  <div class="col-xs-8 col-md-3">
+                  <div class="col-xs-8 col-md-6">
 
                     {{place-autocomplete-field
                       value=place
                       disable=false
                       handlerController= this
                       inputClass= 'place-autocomplete--input  form-control input-sm '
+                      types='(regions)'
                       focusOutCallback='focusOut'
                       placeChangedCallback='placeChanged'
                       restrictions= restriction

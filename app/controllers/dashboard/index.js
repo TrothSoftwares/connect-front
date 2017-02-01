@@ -19,15 +19,37 @@ restriction: {country: "in"},
 
   actions:{
 
-    focusOut(location){
-      console.log(location);
-      console.log("focusout");
+
+
+
+
+
+
+    focusOut(){
+
     },
 
 
-    placeChanged(location){
-      console.log(location);
-      console.log("placechanged");
+    placeChanged(place){
+  //     this.set('placeJSON', JSON.stringify(place, undefined, 2));
+  // if (place.adr_address) {
+  //   let regexp = /(<span(?: \w+="[^"]+")*(?: \w+="[^"]+")*>([^<]*)<\/span>)/g,
+  //       fullAddress = place.adr_address.replace(regexp, "$2");
+  //   this.set('cleanFullAddress', fullAddress);
+  //   console.log("Getting full addrees");
+  //   console.log(fullAddress);
+  // }
+  // console.log("Getting place addr_addrees");
+  // console.log(place.adr_address);
+  // this.set('fullAddress', place.adr_address);
+  //
+  //
+  //     console.log(location);
+  //     console.log("placechanged");
+
+
+
+    
     },
     createPost(){
       var controller = this;
